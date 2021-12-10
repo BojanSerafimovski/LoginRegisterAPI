@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LoginRegisterAPI.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace LoginRegisterAPI.Controllers
 {
+    //only admin can access
+    [Authorize(Roles = UserRoles.Admin)]
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
