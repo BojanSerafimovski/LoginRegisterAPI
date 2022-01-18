@@ -32,9 +32,9 @@ namespace LoginRegisterAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //for entity framework
+            // for entity framework
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
-            //for identity
+            // for identity
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -45,7 +45,7 @@ namespace LoginRegisterAPI
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            //adding jwt bearer
+            // adding jwt bearer
             .AddJwtBearer(options =>
              {
                  options.SaveToken = true;

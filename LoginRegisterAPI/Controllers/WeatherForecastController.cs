@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LoginRegisterAPI.Controllers
 {
-    //only admin can access
+    //Only admin can access
     [Authorize(Roles = UserRoles.Admin)]
     [Authorize]
     [ApiController]
